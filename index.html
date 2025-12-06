@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonder Development - Gaming Tools</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #021b1a, #000000);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #1dd3c4;
+      letter-spacing: 1px;
+    }
+    
+    nav a {
+      margin-left: 25px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #1dd3c4;
+    }
+    
+    .client-portal {
+      padding: 8px 18px;
+      background: #11c5b4;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 100px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0;
+      line-height: 1.2;
+      background: linear-gradient(to right, #1dd3c4, #2afadf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .hero-text p {
+      max-width: 500px;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #cccccc;
+    }
+    
+    .buttons {
+      display: flex;
+      margin-top: 30px;
+      gap: 15px;
+    }
+    
+    .buttons button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .btn-login {
+      background: #11c5b4;
+      color: white;
+    }
+    
+    .btn-deals {
+      background: #2c3e50;
+      color: white;
+    }
+    
+    .hero-logo {
+      font-size: 150px;
+      font-weight: bold;
+      color: rgba(29, 211, 196, 0.15);
+    }
+    
+    /* Updates Section */
+    .updates-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #1dd3c4;
+    }
+    
+    .update-controls {
+      background: rgba(30, 30, 40, 0.7);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(29, 211, 196, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #1dd3c4;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .btn-publish {
+      background: #1dd3c4;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .btn-publish:hover {
+      background: #17a89a;
+    }
+    
+    .updates-list {
+      margin-top: 30px;
+    }
+    
+    .update-card {
+      background: rgba(30, 30, 40, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #1dd3c4;
+    }
+    
+    .update-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .update-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1dd3c4;
+    }
+    
+    .update-date {
+      color: #aaaaaa;
+      font-size: 14px;
+    }
+    
+    .update-type {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(29, 211, 196, 0.2);
+      border-radius: 3px;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    
+    .update-version {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+    
+    .api-info {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .api-info h3 {
+      color: #1dd3c4;
+      margin-bottom: 15px;
+    }
+    
+    .code-block {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 50px;
+      border-top: 1px solid rgba(29, 211, 196, 0.2);
+    }
+    
+    .copyright {
+      color: #aaaaaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WONDER DEVELOPMENT</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#updates">Updates</a>
+      <a href="#tools">Tools</a>
+      <a href="#admin" id="adminLink" style="display:none;">Admin Panel</a>
+      <a href="#" class="client-portal">Client Portal</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Professional Gaming<br />Optimization Tools</h1>
+      <p>We provide premium gaming optimization tools with automatic updates and seamless integration.</p>
+      <div class="buttons">
+        <button class="btn-login" onclick="window.open('WonderClient.exe', '_blank')">Launch Client</button>
+        <button class="btn-deals">Check Updates</button>
+      </div>
+    </div>
+    <div class="hero-logo">W</div>
+  </section>
+
+  <section class="updates-container" id="updates">
+    <h2 class="section-title">Update Management</h2>
+    
+    <div class="update-controls" id="adminPanel" style="display:none;">
+      <h3>Publish New Update</h3>
+      <div class="form-group">
+        <label>Update Title</label>
+        <input type="text" id="updateTitle" placeholder="Enter update title">
+      </div>
+      <div class="form-group">
+        <label>Update Description</label>
+        <textarea id="updateDescription" placeholder="Enter detailed description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Update Type</label>
+        <select id="updateType">
+          <option value="critical">Critical</option>
+          <option value="feature">New Feature</option>
+          <option value="bugfix">Bug Fix</option>
+          <option value="security">Security Update</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Version Number (e.g., 1.2.3)</label>
+        <input type="text" id="updateVersion" placeholder="Enter version number">
+      </div>
+      <div class="form-group">
+        <label>Download URL</label>
+        <input type="text" id="updateUrl" placeholder="http://your-server.com/update.zip">
+      </div>
+      <button class="btn-publish" onclick="publishUpdate()">Publish Update</button>
+    </div>
+
+    <div class="updates-list" id="updatesList">
+      <!-- Updates will be loaded here -->
+    </div>
+
+    <div class="api-info">
+      <h3>API Endpoints for Auto-Updater</h3>
+      <p>Your C# application can check for updates using these endpoints:</p>
+      
+      <div class="code-block">
+        <strong>GET /api/check-updates.php?version=1.0.0</strong><br>
+        Returns: JSON with latest updates since specified version
+      </div>
+      
+      <div class="code-block">
+        <strong>POST /api/publish-update.php</strong><br>
+        Headers: Authorization: Bearer YOUR_ADMIN_TOKEN<br>
+        Body: JSON update data
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="copyright">
+      © 2024 Wonder Development. All rights reserved.<br>
+      Auto-Update System v2.0 | Secure Connection Established
+    </div>
+  </footer>
+
+  <script>
+    // Password for admin access (in production, use proper authentication)
+    const ADMIN_PASSWORD = "WonderDev2024";
+    
+    // Check if user wants admin access
+    if (window.location.hash === '#admin') {
+      const password = prompt("Enter admin password:");
+      if (password === ADMIN_PASSWORD) {
+        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('adminLink').style.display = 'inline';
+      }
+    }
+    
+    // Load updates from server
+    async function loadUpdates() {
+      try {
+        const response = await fetch('api/get-updates.php');
+        const updates = await response.json();
+        
+        const updatesList = document.getElementById('updatesList');
+        updatesList.innerHTML = '';
+        
+        updates.forEach(update => {
+          const updateCard = document.createElement('div');
+          updateCard.className = 'update-card';
+          updateCard.innerHTML = `
+            <div class="update-header">
+              <div class="update-title">${update.title}</div>
+              <div class="update-date">${new Date(update.date).toLocaleDateString()}</div>
+            </div>
+            <div>
+              <span class="update-type">${update.type}</span>
+              <span class="update-version">v${update.version}</span>
+            </div>
+            <p style="margin-top: 10px;">${update.description}</p>
+          `;
+          updatesList.appendChild(updateCard);
+        });
+      } catch (error) {
+        console.error('Error loading updates:', error);
+        document.getElementById('updatesList').innerHTML = 
+          '<p style="text-align:center; color:#ff6b6b;">Failed to load updates. Please try again later.</p>';
+      }
+    }
+    
+    // Publish new update
+    async function publishUpdate() {
+      const updateData = {
+        title: document.getElementById('updateTitle').value,
+        description: document.getElementById('updateDescription').value,
+        type: document.getElementById('updateType').value,
+        version: document.getElementById('updateVersion').value,
+        downloadUrl: document.getElementById('updateUrl').value,
+        date: new Date().toISOString()
+      };
+      
+      // Validate
+      if (!updateData.title || !updateData.version) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      try {
+        const response = await fetch('api/publish-update.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${ADMIN_PASSWORD}`
+          },
+          body: JSON.stringify(updateData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          alert('Update published successfully!');
+          // Clear form
+          document.getElementById('updateTitle').value = '';
+          document.getElementById('updateDescription').value = '';
+          document.getElementById('updateVersion').value = '';
+          document.getElementById('updateUrl').value = '';
+          // Reload updates
+          loadUpdates();
+        } else {
+          alert('Failed to publish update: ' + result.message);
+        }
+      } catch (error) {
+        alert('Error publishing update: ' + error.message);
+      }
+    }
+    
+    // Initialize
+    loadUpdates();
+    
+    // Simulate real-time updates (poll every 30 seconds)
+    setInterval(loadUpdates, 30000);
+  </script>
+</body>
+</html>
